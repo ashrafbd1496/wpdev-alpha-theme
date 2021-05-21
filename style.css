@@ -50,6 +50,10 @@ h2.post-title {
     height: auto;
 }
 
+.post-paginate{
+    margin-bottom:30px;
+}
+
 .post .row:nth-child(2) {
     padding-bottom: 50px;
     border-bottom: 1px solid #ccc;
