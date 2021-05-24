@@ -28,7 +28,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h2 class="post-title">
-                            <?php the_title(); ?>
+                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                         </h2>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                             <strong>
                                 <?php the_author(); ?>
                             </strong><br/>
-                            <?php the_date();?>
+                            <?php echo get_the_date();?>
                         </p>
                         <?php echo get_the_tag_list("<ul class='list-unstyled'><li>","</li><li>","</li></ul>"); ?>
 
@@ -52,7 +52,13 @@
                             }
                            ?>
                         </p>
-                        <?php the_excerpt();?>
+                        <?php
+                        if (is_single()){
+                            the_content();
+                        }else{
+                            the_excerpt();
+                        }
+                        ?>
                     </div>
                 </div>
 
