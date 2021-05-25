@@ -27,8 +27,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="post-title">
-                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                        <h2 class="post-title text-center">
+                            <?php the_title(); ?>
                         </h2>
                     </div>
                 </div>
