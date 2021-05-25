@@ -56,6 +56,11 @@
                         the_content();
                         ?>
                     </div>
+                    <?php if (comments_open()): ?>
+                    <div class="col-md-8">
+                        <?php comments_template(); ?>
+                    </div>
+                    <?php endif; ?>
                 </div>
 
             </div>
