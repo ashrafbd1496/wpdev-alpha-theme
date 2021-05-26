@@ -41,7 +41,12 @@
                         </p>
                         <?php
                         the_content();
+
+                        next_post_link();
+                        echo '</br>';
+                        previous_post_link();
                         ?>
+
                     </div>
                     <?php if (comments_open()): ?>
                     <div class="col-md-8">
