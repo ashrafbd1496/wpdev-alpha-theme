@@ -70,3 +70,10 @@ function alpha_sidebar(){
     );
 }
 add_action('widgets_init','alpha_sidebar');
+
+
+function alpha_menu_item_class( $classes, $item ) {
+    $classes[] = "list-inline-item";
+    return $classes;
+}
+add_filter( 'nav_menu_css_class' , 'alpha_menu_item_class' , 10, 2 );

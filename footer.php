@@ -10,6 +10,17 @@
                 <?php if (is_active_sidebar('footer-right')){
                     dynamic_sidebar('footer-right');
                 } ?>
+            <div class="footer-nav">
+                <?php
+                wp_nav_menu(
+                    array(
+                        'theme_location' => 'footermenu',
+                        'menu_id'        => 'footermenucontainer',
+                        'menu_class'     => 'list-inline text-right',
+                    )
+                );
+                ?>
+            </div>
             </div>
         </div>
     </div>
