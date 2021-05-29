@@ -12,7 +12,7 @@ add_action("after_setup_theme","alpha_bootstrapping");
 
 
 function alpha_assets(){
-    wp_enqueue_style("alpha_themes_style",get_stylesheet_uri());
+    wp_enqueue_style("alpha_themes_style",get_stylesheet_uri(),null,time());
     wp_enqueue_style("bootstrap","//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css");
     wp_enqueue_style("featherlight-css","//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.css");
 
