@@ -18,6 +18,10 @@ function alpha_bootstrapping(){
     $alpha_custom_header_details = array(
         'header-text'   => true,
         'default-text-color'   => '#222',
+        'width'   => 1200,
+        'height'   => 600,
+        'flex-height'   => true,
+        'flex-width'   => true
     );
     add_theme_support("custom-header", $alpha_custom_header_details);
     register_nav_menu('topmenu',__('Top Menu','alpha'));
