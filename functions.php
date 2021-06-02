@@ -24,6 +24,8 @@ function alpha_bootstrapping(){
         'flex-width'   => true
     );
     add_theme_support("custom-header", $alpha_custom_header_details);
+
+    add_theme_support("custom-background");
     register_nav_menu('topmenu',__('Top Menu','alpha'));
     register_nav_menu('footermenu',__('Footer Menu','alpha'));
 }
