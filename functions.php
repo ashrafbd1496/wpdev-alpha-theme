@@ -6,11 +6,15 @@ if ( site_url() =='http://127.0.0.1/ashraf'){
     defined('VERSION',wp_get_theme()->get('Version'));
 }
 
-
 function alpha_bootstrapping(){
     load_theme_textdomain("alpha");
     add_theme_support("post-thumbnails");
     add_theme_support("title-tag");
+    $alpha_custom_logo_defaults = array(
+        'width' => '100',
+        'height' => '100',
+    );
+    add_theme_support("custom-logo",$alpha_custom_logo_defaults);
     $alpha_custom_header_details = array(
         'header-text'   => true,
         'default-text-color'   => '#222',
