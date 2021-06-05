@@ -46,9 +46,11 @@
                                     <?php
                                     the_content();
 
-                                    next_post_link();
-                                    echo '</br>';
-                                    previous_post_link();
+                                    wp_link_pages();
+
+//                                    next_post_link();
+//                                    echo '</br>';
+//                                    previous_post_link();
                                     ?>
 
                                 </div>
