@@ -142,3 +142,18 @@ function alpha_about_page_template_header(){
 }
 
 add_action('wp_head','alpha_about_page_template_header',11);
+
+//filter function to remove class from body and post class
+function alpha_body_class($classes){
+    unset($classes[array_search('first_class',$classes)]);
+    $classes[] = "newclass";
+    return $classes;
+}
+add_filter('body_class','alpha_body_class');
+
+function alpha_post_class($classes){
+    unset($classes[array_search('second_post_class',$classes)]);
+    $classes[] = "newclass";
+    return $classes;
+}
+add_filter('post_class','alpha_post_class');
