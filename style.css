@@ -105,3 +105,10 @@ h2.post-title {
     color: #222;
     font-size: 80px;
 }
+.authorsection{
+    border: 1px solid #ccc;
+    padding: 25px;
+}
+.authorimage img{
+    border-radius: 48px;
+}
