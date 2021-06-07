@@ -10,9 +10,13 @@
                 $dateobject= DateTime::createFromFormat('!m',$month);
                 echo $dateobject->format('F');
             }elseif (is_year()){
-                echo get_query_var('year');
+                $year = esc_html(get_query_var("year"));
+                echo $year;
             }elseif(is_day()){
-               printf('%s/%s/%s',get_query_var('day'),get_query_var('monthnum'),get_query_var('year'));
+                $month = esc_html(get_query_var("monthnum"));
+                $day = esc_html(get_query_var("day"));
+                $year = esc_html(get_query_var("year"));
+               printf('%s/%s/%s',$day,$month,$year);
             }
         ?>
     </h1>
