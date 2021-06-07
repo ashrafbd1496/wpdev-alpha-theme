@@ -8,8 +8,7 @@
         <div class="col-md-12">
             <h1 class="text-center">
                 <?php
-                    _e("Sorry ! We couldn't found what you were looking for",'alpha' );
-                ?>
+                    _e("Sorry ! We couldn't found what you were looking for",'alpha' );                ?>
             </h1>
         </div>
     </div>
