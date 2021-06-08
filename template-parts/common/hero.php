@@ -32,3 +32,11 @@
         </div>
     </div>
 </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-right">
+            <?php echo get_search_form(); ?>
+        </div>
+    </div>
+</div>
