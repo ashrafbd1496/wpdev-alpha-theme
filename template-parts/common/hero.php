@@ -36,6 +36,14 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 text-right">
+            <?php
+            if(is_search()){
+                ?>
+            <h5>You searched for: <?php the_search_query();  ?></h5>
+        <?php
+            }
+
+            ?>
             <?php echo get_search_form(); ?>
         </div>
     </div>
