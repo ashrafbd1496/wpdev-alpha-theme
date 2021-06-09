@@ -35,10 +35,15 @@ function alpha_bootstrapping(){
 
     add_theme_support('post-formats',array('audio','video','image','quote','link'));
 
-    add_image_size('alpha-square',400,400,true); //here true mean hard crop
+    //custom post thumbnail sizes
+    add_image_size('alpha-square',400,400,true); //here true mean hard crop from center center
     add_image_size('alpha-portrait',400,9999);
     add_image_size('alpha-landscape',9999,400);
     add_image_size('alpha-landscape-hard-cropped',600,400);
+
+    //if we need image size cropping we can do like bellow
+    add_image_size('alpha-square-new',401,401,arrray('left','top'));
+    add_image_size('alpha-square-another',402,402,arrray('left','bottom'));
 
 
 
