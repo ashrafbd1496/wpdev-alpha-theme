@@ -35,6 +35,12 @@ function alpha_bootstrapping(){
 
     add_theme_support('post-formats',array('audio','video','image','quote','link'));
 
+    add_image_size('alpha-square',400,400,true); //here true mean hard crop
+    add_image_size('alpha-portrait',400,9999);
+    add_image_size('alpha-landscape',9999,400);
+    add_image_size('alpha-landscape-hard-cropped',600,400);
+
+
 
 }
 
@@ -164,3 +170,16 @@ function alpha_post_class($classes){
     return $classes;
 }
 add_filter('post_class','alpha_post_class');
+
+//functions to show search result highlighted
+function alpha_highlight_search_results($text){
+    if(is_search()){
+        $pattern = '/('. join('|', explode(' ', get_search_query())).')/i';
+        $text = preg_replace($pattern, '<span class="search-highlight">\0</span>', $text);
+    }
+    return $text;
+}
+add_filter('the_content', 'alpha_highlight_search_results');
+add_filter('the_excerpt', 'alpha_highlight_search_results');
+add_filter('the_title', 'alpha_highlight_search_results');
+
