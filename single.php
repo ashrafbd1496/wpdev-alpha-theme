@@ -93,7 +93,7 @@ if ( ! is_active_sidebar( "sidebar-1" ) ) {
                                     <?php if ( comments_open() ): ?>
                                         <div class="col-md-12">
                                             <?php
-                                            //comments_template();
+                                            comments_template();
                                             ?>
                                         </div>
                                     <?php endif; ?>

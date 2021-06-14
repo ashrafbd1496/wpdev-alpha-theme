@@ -15,6 +15,9 @@
                 <h1 class="align-self-center display-1 text-center heading">
                     <a href="<?php echo site_url(); ?>"><?php bloginfo("name"); ?></a>
                 </h1>
+                <p class="text-center">
+                    <?php echo alpha_todays_date(); ?>
+                </p>
             </div>
             <div class="col-md-12">
                 <div class="navigation">
