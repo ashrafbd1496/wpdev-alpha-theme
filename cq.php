@@ -11,10 +11,13 @@
     <?php
     $paged = get_query_var('paged') ? get_query_var('paged'):1;
     $posts_per_page = 2;
+    $total = 9;
     $post_ids = array(23,28,17,42,25,249);
     $cp = get_posts(array(
             'posts_per_page' => $posts_per_page,
-            'post__in'   =>  $post_ids,
+            'number_of_posts'   => $total,
+            'author__in'    => array(1),
+//            'post__in'   =>  $post_ids,
 //        'order' =>'asc',
             'orderby'   => 'post__in',      //to show order exactly we want
             'paged' => $paged,
@@ -36,7 +39,7 @@
             <div class="col-md-8">
                 <?php
                 echo paginate_links( array(
-                    'total' => ceil( count( $post_ids ) / $posts_per_page )
+                    'total' => ceil( $total / $posts_per_page )
                 ) );
                 ?>
             </div>
