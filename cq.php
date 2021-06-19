@@ -24,14 +24,18 @@
     ));
 
     foreach ($cp as $post){
-      setup_postdata($post);
+      //setup_postdata($post);
         ?>
-        <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+        <h2>
+            <a href="<?php echo esc_url($post->guid); ?>">
+                <?php echo apply_filters('the_title', $post->post_title); ?>
+            </a>
+        </h2>
 
         <?php
 
     }
-    wp_reset_postdata();
+    //wp_reset_postdata();
     ?>
     <div class="container post-paginate">
         <div class="row">
