@@ -10,16 +10,14 @@
 <div class="posts text-center">
     <?php
     $paged = get_query_var('paged') ? get_query_var('paged'):1;
-    $posts_per_page = 2;
-    $total = 9;
+    $posts_per_page = 3;
     $post_ids = array(15,23,28,15,25,249);
     $cp = new WP_Query(array(
-           //'posts_per_page' => $posts_per_page,
-            'number_of_posts'   => $total,
-            'author__in'    => array(1),
-           'post__in'   =>  $post_ids,
+           'posts_per_page' => $posts_per_page,
+         //   'author__in'    => array(1),
+         //  'post__in'   =>  $post_ids,
 //        'order' =>'asc',
-            'orderby'   => 'post__in',      //to show order exactly we want
+         //   'orderby'   => 'post__in',      //to show order exactly we want
             'paged' => $paged,
     ));
     while ( $cp->have_posts() ) {
@@ -30,12 +28,15 @@
     }
     wp_reset_query();
     ?>
-    <div class="container post-paginate">
+    <div class="container post-pagination">
         <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <?php
-
+                echo paginate_links( array(
+                    'total'     => $cp->max_num_pages,
+                    'current'   => $paged,
+                    'prev_next' => false,
+                ) );
                 ?>
             </div>
         </div>
