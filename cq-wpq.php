@@ -13,24 +13,33 @@
     $posts_per_page = 3;
     $post_ids = array(15,23,28,15,25,249);
     $cp = new WP_Query(array(
-           // 'category_name' => 'travel',
-           'posts_per_page' => $posts_per_page,
-            'paged' => $paged,
-            'tax_query' =>array(
-                    'relation'  => 'OR',
-                array(
-                    'taxonomy' => 'category',
-                    'field'    => 'slug',
-                    'terms'    => array( 'beach' )
-                ),
-                array(
-                    'taxonomy' => 'post_tag',
-                    'field'    => 'slug',
-                    'terms'    => array( 'travel' )
-                ),
-            )
+//            'monthnum' => 6,
+//            'year' => 2021,
+            'post_status' => 'future',
+
+
+
+
+
+//           // 'category_name' => 'travel',
+//           'posts_per_page' => $posts_per_page,
+//            'paged' => $paged,
+//            'tax_query' =>array(
+//                    'relation'  => 'OR',
+//                array(
+//                    'taxonomy' => 'category',
+//                    'field'    => 'slug',
+//                    'terms'    => array( 'beach' )
+//                ),
+//                array(
+//                    'taxonomy' => 'post_tag',
+//                    'field'    => 'slug',
+//                    'terms'    => array( 'travel' )
+//                ),
+//            )
+
     ));
-    while ( $cp->have_posts() ) {
+    while ($cp->have_posts() ) {
         $cp->the_post();
         ?>
         <h5><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
