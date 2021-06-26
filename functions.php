@@ -199,3 +199,12 @@ if(! function_exists('alpha_todays_date')){
         echo date('d/m/y');
     }
 }
+//using this hook to modify main query
+
+function alpha_modify_main_query($wpq) {
+    if ( $wpq->is_home() && $wpq->is_main_query() ) {
+        $wpq->set( 'post__not_in', array(15) );
+      //  $wpq->set( 'tag__not_in', array(3) );
+    }
+}
+add_action( 'pre_get_posts', 'alpha_modify_main_query' );
