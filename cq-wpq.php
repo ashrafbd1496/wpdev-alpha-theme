@@ -13,12 +13,22 @@
     $posts_per_page = 3;
     $post_ids = array(15,23,28,15,25,249);
     $cp = new WP_Query(array(
+           // 'category_name' => 'travel',
            'posts_per_page' => $posts_per_page,
-         //   'author__in'    => array(1),
-         //  'post__in'   =>  $post_ids,
-//        'order' =>'asc',
-         //   'orderby'   => 'post__in',      //to show order exactly we want
             'paged' => $paged,
+            'tax_query' =>array(
+                    'relation'  => 'OR',
+                array(
+                    'taxonomy' => 'category',
+                    'field'    => 'slug',
+                    'terms'    => array( 'beach' )
+                ),
+                array(
+                    'taxonomy' => 'post_tag',
+                    'field'    => 'slug',
+                    'terms'    => array( 'travel' )
+                ),
+            )
     ));
     while ( $cp->have_posts() ) {
         $cp->the_post();
