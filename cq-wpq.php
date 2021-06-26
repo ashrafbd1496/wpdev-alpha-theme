@@ -13,19 +13,27 @@
     $posts_per_page = 3;
     $post_ids = array(15,23,28,15,25,249);
     $cp = new WP_Query(array(
+
+
 //            'monthnum' => 6,
 //            'year' => 2021,
-            'post_status' => 'future',
-
-
-
-
+           // 'post_status' => 'future',
 
 //           // 'category_name' => 'travel',
-//           'posts_per_page' => $posts_per_page,
-//            'paged' => $paged,
-//            'tax_query' =>array(
-//                    'relation'  => 'OR',
+          'posts_per_page' => $posts_per_page,
+            'paged' => $paged,
+            'tax_query' =>array(
+                    'relation'  => 'OR',
+                array(
+                    'taxonomy' => 'post_format',
+                    'field'    => 'slug',
+                    'terms'    => array(
+                            'post-format-audio',
+                            'post-format-video',
+                    ),
+                    //if want to show posts without above format
+                    'operator'  =>'NOT IN',
+                )),
 //                array(
 //                    'taxonomy' => 'category',
 //                    'field'    => 'slug',
