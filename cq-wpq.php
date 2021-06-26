@@ -13,6 +13,21 @@
     $posts_per_page = 3;
     $post_ids = array(15,23,28,15,25,249);
     $cp = new WP_Query(array(
+        'posts_per_page' => $posts_per_page,
+            'paged' => $paged,
+            'meta_query' => array(
+                    'relation'  =>'AND',
+                array(
+                        'key'   => 'featured',
+                        'value'   => '1',
+                        'compare'   => '=',
+                ),
+                array(
+                    'key'   => 'homepage',
+                    'value'   => '1',
+                    'compare'   => '=',
+                ),
+            )
 
 
 //            'monthnum' => 6,
@@ -20,11 +35,11 @@
            // 'post_status' => 'future',
 
 //           // 'category_name' => 'travel',
-          'posts_per_page' => $posts_per_page,
-            'paged' => $paged,
-            'meta_key' => 'featured',
-            'meta_value' => '1'
-
+//          'posts_per_page' => $posts_per_page,
+//            'paged' => $paged,
+//            'meta_key' => 'featured',
+//            'meta_value' => '1'
+//
 
 
 
