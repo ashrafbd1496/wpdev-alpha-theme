@@ -1,4 +1,5 @@
 <?php
+require_once get_theme_file_path( '/inc/tgm.php');
 if ( class_exists( 'Attachments' ) ) {
     require_once('lib/attachments.php');
 }
@@ -208,3 +209,4 @@ function alpha_modify_main_query($wpq) {
     }
 }
 add_action( 'pre_get_posts', 'alpha_modify_main_query' );
+
