@@ -60,10 +60,34 @@ if ( ! is_active_sidebar( "sidebar-1" ) ) {
                                             }
 
                                             the_content();
+                                            if (get_post_format()=='image'):
+                                                ?>
+                                            <div class="metainfo mb-3">
+                                                <strong>Camera Model: </strong><?php the_field('camera_model'); ?> <br/>
+                                                <strong>Location: </strong><?php
+                                                $alpha_location = get_field('location');
+                                                echo esc_html($alpha_location);
+                                                ?>
+                                                <br/>
+                                                <strong>Date : </strong><?php the_field('date'); ?> <br/>
+                                                <?php
+                                                    if (get_field('licenced')):
+                                                        ?>
+                                                        <strong>Licenced : </strong>
+                                                    <?php
+                                                        echo apply_filters('the_content',get_field('license_information')) ;
+                                                      endif;
+                                                        ?>
 
-                                            the_post_thumbnail('alpha-square-new1');
-                                            the_post_thumbnail('alpha-square-new2');
-                                            the_post_thumbnail('alpha-square-new3');
+                                            </div>
+
+                                            <?php
+                                                endif;
+
+
+ //                                           the_post_thumbnail('alpha-square-new1');
+//                                            the_post_thumbnail('alpha-square-new2');
+//                                            the_post_thumbnail('alpha-square-new3');
 
                                             wp_link_pages();
 
