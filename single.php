@@ -130,6 +130,14 @@ if ( ! is_active_sidebar( "sidebar-1" ) ) {
                                                 <p>
                                                     <?php echo get_the_author_meta( "description" ); ?>
                                                 </p>
+                                                <?php if (function_exists('the_field')): ?>
+                                                <p>
+
+                                                    <a href="<?php the_field('facebook','user_'.get_the_author_meta( "ID" )) ?>"><span class="social-icon dashicons dashicons-facebook-alt"></span></a>
+                                                    <a href="<?php the_field('twitter','user_'.get_the_author_meta( "ID" )) ?>"><span class="social-icon dashicons dashicons-twitter-alt"></span></a>
+
+                                                </p>
+                                                <?php endif; ?>
 
                                             </div>
                                         </div>

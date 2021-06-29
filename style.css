@@ -119,3 +119,7 @@ h2.post-title {
     background-color:#ff0;
     font-weight:bold;
 }
+.social-icon{
+    font-size: 40px;
+    display: inline !important;
+}
