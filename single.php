@@ -106,7 +106,6 @@ if ( ! is_active_sidebar( "sidebar-1" ) ) {
                                             <?php
                                                 endif;
 
-
  //                                           the_post_thumbnail('alpha-square-new1');
 //                                            the_post_thumbnail('alpha-square-new2');
 //                                            the_post_thumbnail('alpha-square-new3');
