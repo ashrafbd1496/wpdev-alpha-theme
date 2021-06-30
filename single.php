@@ -61,9 +61,11 @@ if ( ! is_active_sidebar( "sidebar-1" ) ) {
 
                                             the_content();
                                             if (get_post_format()=='image' && function_exists('the_field')):
+                                                $camera_model = get_post_meta(get_the_ID(),'camera_model',true);
                                                 ?>
                                             <div class="metainfo mb-3">
-                                                <strong>Camera Model: </strong><?php the_field('camera_model'); ?> <br/>
+                                                <strong>Camera Model: </strong><?php echo esc_html($camera_model); ?> <br/>
+<!--                                                <strong>Camera Model: </strong>--><?php //the_field('camera_model'); ?><!-- <br/>-->
                                                 <strong>Location: </strong><?php
                                                 $alpha_location = get_field('location');
                                                 echo esc_html($alpha_location);
@@ -137,34 +139,37 @@ if ( ! is_active_sidebar( "sidebar-1" ) ) {
                                                     <a href="<?php  the_field('twitter','user_'.get_the_author_meta( "ID" )) ?>"><span class="social-icon dashicons dashicons-twitter-alt"></span></a>
 
                                                 </p>
-                                                <div>
-                                                    <h3 class="related_post"><?php _e('Related Post','alpha') ?></h3>
-                                                    <?php
-                                                    $related_post = get_field('related_post');
-                                                    $alpha_rp = New WP_Query(
-                                                            array(
-                                                               'post__in'   =>$related_post,
-                                                               'orderby'   =>'post__in',
-                                                            ),
-                                                    );
-                                                    while( $alpha_rp->have_posts()){
-                                                        $alpha_rp->the_post();
-
-                                                        ?>
-                                                      <h5>
-                                                          <a href="<?php the_permalink(); ?>"><?php the_title(); ?>
-                                                      </h5>
-                                                        <?php
-                                                    }
-                                                    wp_reset_query();
-                                                    ?>
-
-                                                </div>
                                                 <?php endif; ?>
 
                                             </div>
                                         </div>
                                     </div>
+                                    <?php
+                                    if (function_exists('the_field')): ?>
+                                        <div class="mt-3">
+                                            <h3 class="related_post"><?php _e('Related Post','alpha') ?></h3>
+                                            <?php
+                                            $related_post = get_field('related_post');
+                                            $alpha_rp = New WP_Query(
+                                                array(
+                                                    'post__in'   =>$related_post,
+                                                    'orderby'   =>'post__in',
+                                                ),
+                                                    );
+                                            while( $alpha_rp->have_posts()){
+                                                $alpha_rp->the_post();
+
+                                                ?>
+                                                <h5>
+                                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?>
+                                                </h5>
+                                                <?php
+                                            }
+                                            wp_reset_query();
+                                            ?>
+
+                                        </div>
+                                    <?php endif; ?>
 
                                     <?php if ( !post_password_required()): ?>
                                         <div class="col-md-12">
