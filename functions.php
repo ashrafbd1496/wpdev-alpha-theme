@@ -211,3 +211,5 @@ function alpha_modify_main_query($wpq) {
 }
 add_action( 'pre_get_posts', 'alpha_modify_main_query' );
 
+add_filter('acf/settings/show_admin','__return_false');
+
