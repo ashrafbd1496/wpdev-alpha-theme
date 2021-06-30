@@ -130,13 +130,36 @@ if ( ! is_active_sidebar( "sidebar-1" ) ) {
                                                 <p>
                                                     <?php echo get_the_author_meta( "description" ); ?>
                                                 </p>
-                                                <?php if (function_exists('the_field')): ?>
+                                                <?php
+                                                if (function_exists('the_field')): ?>
                                                 <p>
-
-                                                    <a href="<?php the_field('facebook','user_'.get_the_author_meta( "ID" )) ?>"><span class="social-icon dashicons dashicons-facebook-alt"></span></a>
-                                                    <a href="<?php the_field('twitter','user_'.get_the_author_meta( "ID" )) ?>"><span class="social-icon dashicons dashicons-twitter-alt"></span></a>
+                                                    <a href="<?php  the_field('facebook','user_'.get_the_author_meta( "ID" )) ?>"><span class="social-icon dashicons dashicons-facebook-alt"></span></a>
+                                                    <a href="<?php  the_field('twitter','user_'.get_the_author_meta( "ID" )) ?>"><span class="social-icon dashicons dashicons-twitter-alt"></span></a>
 
                                                 </p>
+                                                <div>
+                                                    <h3 class="related_post"><?php _e('Related Post','alpha') ?></h3>
+                                                    <?php
+                                                    $related_post = get_field('related_post');
+                                                    $alpha_rp = New WP_Query(
+                                                            array(
+                                                               'post__in'   =>$related_post,
+                                                               'orderby'   =>'post__in',
+                                                            ),
+                                                    );
+                                                    while( $alpha_rp->have_posts()){
+                                                        $alpha_rp->the_post();
+
+                                                        ?>
+                                                      <h5>
+                                                          <a href="<?php the_permalink(); ?>"><?php the_title(); ?>
+                                                      </h5>
+                                                        <?php
+                                                    }
+                                                    wp_reset_query();
+                                                    ?>
+
+                                                </div>
                                                 <?php endif; ?>
 
                                             </div>
