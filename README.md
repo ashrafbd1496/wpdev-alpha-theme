@@ -1,1 +1,1 @@
-# wpdev-alpha-theme
+# wpdev alpha theme
